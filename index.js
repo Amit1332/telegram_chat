@@ -3,13 +3,17 @@ const { Configuration, OpenAIApi } = require("openai");
 const { getImage, getChat } = require("./Helper/functions");
 const { Telegraf } = require("telegraf");
 
+const API = "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"
+const TG_API = "6005222428:AAGLP8pgTru-z-s5X5qbCvuFbeI5LxdyOF8"
+
+
 const configuration = new Configuration({
-  apiKey: process.env.API,
+  apiKey: API,
 });
 const openai = new OpenAIApi(configuration);
 module.exports = openai;
 
-const bot = new Telegraf(process.env.TG_API);
+const bot = new Telegraf(TG_API);
 bot.start((ctx) => ctx.reply("Welcome , You can ask anything from me"));
 
 bot.help((ctx) => {
